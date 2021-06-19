@@ -6,13 +6,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
     return (
-    <Router>
-        <div className="App">
-            <Navbar/>
-            <Route exact path="/" component={ Search } />
-            <Route exact path="/saved" component={ Saved } />
-        </div>
-    </Router>
+        <Router>
+            <div className="App">
+                <Navbar/>
+                <Route exact path="/" component={ Search } />
+                <Route exact path="/saved" component={ Saved } />
+            </div>
+        </Router>
     );
 };
 
