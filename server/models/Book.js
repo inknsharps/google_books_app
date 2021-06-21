@@ -7,12 +7,12 @@ const BookSchema = new Schema({
 		default: "Book title!"
 	},
 	authors: {
-		type: String,
+		type: Array,
 		default: "Authors!"
 	},
-	dscription: {
+	description: {
 		type: String,
-		default: "dscription!"
+		default: "Description!"
 	},
 	image: {
 		type: String,
