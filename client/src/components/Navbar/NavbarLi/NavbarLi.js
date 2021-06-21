@@ -1,8 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const NavbarLi = () => {
+const NavbarLi = ({ name, link }) => {
     return (
-        <div className="NavbarLi"></div>
+        <NavLink to={ link }>
+            <li className="NavbarLi">
+                { name }
+            </li>
+        </NavLink>
     )
 };
 
