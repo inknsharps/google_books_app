@@ -7,18 +7,23 @@ const Search = () => {
     const [ results, setResults ] = useState([]);
     const [ input, setInput ] = useState("");
 
-    const handleInput = event => {
-        console.log(event.target.value);
-        setInput(event.target.value);
-    };
-
     // Destructure the Axios request as usual, then the Google Books API returns its results in a item property
     const submitSearch = query => {
         API.getGoogleBooks(query)
-            .then(({ data: { items } }) => {
-                console.log(items);
-                setResults(items);
-            });
+        .then(({ data: { items } }) => {
+            setResults(items);
+        })
+        .catch(err => console.log(err));
+    };
+    
+    const submitSaveBook = book => {
+        API.saveBook(book)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
+    
+    const handleInput = event => {
+        setInput(event.target.value);
     };
 
     // We use event.target[0] because that's the input element we want to get the search query from in the event
@@ -29,11 +34,6 @@ const Search = () => {
             return submitSearch(query);
         };
         return alert("You must provide a search query!");
-    };
-
-    const submitSaveBook = book => {
-        API.saveBook(book)
-            .then(res => console.log(res))
     };
 
     // Destructured values relate to how the Google Books API response object is structured

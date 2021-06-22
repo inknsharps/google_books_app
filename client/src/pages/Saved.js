@@ -9,7 +9,8 @@ const Saved = () => {
 
     useEffect(() => {
         API.getSavedBooks()
-            .then(({ data }) => setCurrentBooks(data));
+            .then(({ data }) => setCurrentBooks(data))
+            .catch(err => console.log(err));
     }, [newBooks]);
 
     // Attach this function to some event handler later
@@ -21,6 +22,7 @@ const Saved = () => {
                         .then(({ data }) => setNewBooks(data));
                 }
             })
+            .catch(err => console.log(err));
     };
 
     const generateBooks = books => {
