@@ -45,13 +45,15 @@ const Search = () => {
     };
 
     return (
-        <div className="Search">
-            <h1>This is the Search page.</h1>
-            <form id="search-form" onSubmit={ handleSearch }>
-                <input type="text" placeholder="Search Query..." value={ input } onChange={ handleInput }></input>
+        <div className="Search d-flex flex-column align-items-center">
+            <h2>Search for a book!</h2>
+            <form className="d-flex" id="search-form" onSubmit={ handleSearch }>
+                <input className="form-control w-100" type="text" placeholder="Search Query..." value={ input } onChange={ handleInput }></input>
                 <Button name="search" text="Search" type="submit" form="search-form" />
             </form>
-            { generateResults(results) }
+            <div className="container">
+                { generateResults(results) }
+            </div>
         </div>
     )
 };

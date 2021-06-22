@@ -34,8 +34,8 @@ const Saved = () => {
     };
 
     return (
-        <div className="Saved">
-            <h1>This is the Saved page.</h1>
+        <div className="Saved container">
+            <h2>Your Saved Books</h2>
             { generateBooks(currentBooks) }
         </div>
     )

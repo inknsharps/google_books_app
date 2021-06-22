@@ -5,10 +5,12 @@ import Button from "../../Button/Button";
 
 const SearchContainer = ({ title, authors, thumbnail, infoLink, description, submitSaveBook }) => {
     return (
-        <div className="SearchContainer">
+        <div className="SearchContainer card p-4">
             <BookHeader title={ title } />
             <BookBody title={ title } authors={ authors } thumbnail={ thumbnail } infoLink={ infoLink } description={ description } />
-            <Button text="Save" callback={ () => submitSaveBook({ title, authors, infoLink, thumbnail, description }) } />
+            <div>
+                <Button text="Save" callback={ () => submitSaveBook({ title, authors, infoLink, thumbnail, description }) } />
+            </div>
         </div>
     )
 };
