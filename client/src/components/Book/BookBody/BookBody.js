@@ -1,8 +1,8 @@
 import React from "react";
 
-const SearchBody = ({ title, authors, thumbnail, infoLink, description}) => {
+const BookBody = ({ title, authors, thumbnail, infoLink, description}) => {
     return (
-        <div className="SearchBody">
+        <div className="BookBody">
             <p> Authors: { authors }</p>
             <img src={ thumbnail } alt={ `${title}-thumbnail` }></img>
             <p> Description: { description }</p>
@@ -11,4 +11,4 @@ const SearchBody = ({ title, authors, thumbnail, infoLink, description}) => {
     )
 };
 
-export default SearchBody;
+export default BookBody;
