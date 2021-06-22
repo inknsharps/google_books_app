@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SearchContainer from "../components/Search/SearchContainer/SearchContainer";
 import Button from "../components/Button/Button";
 import API from "../utils/API"; 
 
@@ -7,7 +8,7 @@ const Search = () => {
     const [ input, setInput ] = useState("");
 
     const handleInput = event => {
-        console.log(event.target.value)
+        console.log(event.target.value);
         setInput(event.target.value);
     };
 
@@ -17,7 +18,7 @@ const Search = () => {
             .then(({ data: { items } }) => {
                 console.log(items);
                 setResults(items);
-            })
+            });
     };
 
     // We use event.target[0] because that's the input element we want to get the search query from in the event
@@ -30,7 +31,13 @@ const Search = () => {
         return alert("You must provide a search query!");
     };
 
-    const generateResults = results => results.map(result => <div key={ result.id }>{ result.volumeInfo.title }</div>);
+    // Destructured values relate to how the Google Books API response object is structured
+    const generateResults = results => {
+        return results.map(result => {
+            const { id, volumeInfo: { authors, description, imageLinks: { thumbnail }, title, infoLink } } = result;
+            return <SearchContainer key={ id } authors={ authors } description={ description } thumbnail={ thumbnail } title={ title } infoLink={ infoLink } />
+        });
+    };
 
     return (
         <div className="Search">
