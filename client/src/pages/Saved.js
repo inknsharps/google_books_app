@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SavedBooksContainer from "../components/SavedBooks/SavedBooksContainer";
 import API from "../utils/API"; 
 
 // Note that for Axios requests, we can directly destructure the data from the response object.
@@ -24,7 +25,10 @@ const Saved = () => {
 
     const generateBooks = books => {
         console.log(books);
-        return books.map(book => <div key={ book._id }>{ book.title }, by { book.authors }, { book.description }</div>)
+        return books.map(book => {
+            const { _id, title, authors, description, image, link } = book;
+            return <SavedBooksContainer key={ _id } title={ title } authors={ authors } thumbnail={ image } infoLink={ link } description={ description } />
+        });
     };
 
     return (
