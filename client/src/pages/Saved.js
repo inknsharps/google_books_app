@@ -27,7 +27,7 @@ const Saved = () => {
         console.log(books);
         return books.map(book => {
             const { _id, title, authors, description, image, link } = book;
-            return <SavedBooksContainer key={ _id } title={ title } authors={ authors } thumbnail={ image } infoLink={ link } description={ description } />
+            return <SavedBooksContainer key={ _id } id={ _id } title={ title } authors={ authors } thumbnail={ image } infoLink={ link } description={ description } deleteBook={ deleteBook }/>
         });
     };
 
