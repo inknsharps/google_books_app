@@ -31,11 +31,16 @@ const Search = () => {
         return alert("You must provide a search query!");
     };
 
+    const submitSaveBook = book => {
+        API.saveBook(book)
+            .then(res => console.log(res))
+    };
+
     // Destructured values relate to how the Google Books API response object is structured
     const generateResults = results => {
         return results.map(result => {
             const { id, volumeInfo: { authors, description, imageLinks: { thumbnail }, title, infoLink } } = result;
-            return <SearchContainer key={ id } authors={ authors } description={ description } thumbnail={ thumbnail } title={ title } infoLink={ infoLink } />
+            return <SearchContainer key={ id } authors={ authors } description={ description } thumbnail={ thumbnail } title={ title } infoLink={ infoLink } submitSaveBook={ submitSaveBook }/>
         });
     };
 

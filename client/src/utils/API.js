@@ -10,8 +10,14 @@ const API = {
     getSavedBooks() {
         return axios.get(`${server}/api/books`);
     },
-    saveBook() {
-        return axios.post(`${server}/api/books`);
+    saveBook(book) {
+        return axios.post(`${server}/api/books`, {
+            title: book.title,
+            authors: book.authors,
+            image: book.thumbnail,
+            link: book.infoLink,
+            description: book.description
+        });
     },
     deleteBook(id) {
         return axios.delete(`${server}/api/books/${id}`);
